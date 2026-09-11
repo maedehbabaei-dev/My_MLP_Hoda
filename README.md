@@ -1,59 +1,89 @@
-# My_MLP_Hoda
-Handwritten digit recognition using a custom NumPy MLP and Genetic Algorithm.
+Open:
 
-# Hoda0_9 Digit Classification (MLP + Genetic Algorithm)
+MyMLP_Hoda_GA.ipynb
 
-This project focuses on recognizing digits from the Hoda0_9 dataset using two fully custom neural network implementations:
+in Google Colab or Jupyter Notebook.
 
-1. MLP (Gradient Descent) — a multi-layer perceptron built entirely from scratch using NumPy  
-2. MLP with Genetic Algorithm (GA) — weight optimization using evolutionary search
+2. Prepare the Dataset
 
-Both models are implemented without any deep learning frameworks.
+Place the Hoda images in the expected Google Drive directory:
 
----
+/content/drive/MyDrive/Hoda 0-9/
 
-## Dataset: Hoda0_9
+3. Run the Notebook
 
-- Name: Hoda0_9  
-- Format: Excel  
-- Type: Persian handwritten digits (0–9)  
-- Features: numeric pixel values  
-- Target: digit label (0–9)
+Run the cells sequentially.
 
-The dataset is large and cannot be uploaded to GitHub.  
-It should be downloaded separately and placed inside the data/ directory as:
+The notebook will:
 
-data/Hoda0_9.xlsx
-
-
-The dataset is normalized, shuffled, and split into training and validation sets before training.
-
----
-
-## Model Architectures
-
-### MLP (Gradient Descent)
-A fully custom neural network implemented using NumPy:
-- Activation: Sigmoid  
-- Loss: Mean Squared Error (MSE)  
-- Optimization: Gradient Descent + Momentum  
-- Batch-based training  
-- Output plots (MSE & Accuracy) will be added later
-
-### MLP with Genetic Algorithm (GA)
-Neural network weights are flattened into a chromosome and optimized using GA:
-- Selection: Tournament  
-- Crossover: Uniform  
-- Mutation: Gaussian noise  
-- Fitness function: 1 / (1 + loss)  
-- GA logs and comparison plots will be added later
+Load images
+    ↓
+Preprocess images
+    ↓
+Create training/validation sets
+    ↓
+Build the MLP
+    ↓
+Initialize Genetic Algorithm
+    ↓
+Optimize neural network weights
+    ↓
+Evaluate validation performance
+    ↓
+Generate accuracy curves
+    ↓
+Generate confusion matrix
+    ↓
+Generate classification report
 
 ---
 
-## Project Structure
-Hoda_project/ ├─ data/ │  └─ Hoda0_9.xlsx   ← (download separately) ├─ notebooks/ │  ├─ Hoda_MLP.ipynb │  └─ Hoda_GA.ipynb ├─ images/ │  ├─ hoda_mlp_mse.png │  ├─ hoda_mlp_acc.png │  ├─ hoda_ga_vs_gd.png │  └─ hoda_ga_log.png └─ README.md
+🎯 Project Goal
+
+The main goal of this project is to explore the use of a Genetic Algorithm as an optimization method for neural network weights.
+
+Instead of relying on traditional gradient descent, the Genetic Algorithm searches for neural network weight combinations that minimize the classification loss.
+
+This project demonstrates the combination of:
+
+Neural Networks
+        +
+Genetic Algorithms
+        ↓
+Image Classification
 
 ---
 
-## Author
+⚠️ Limitations
+
+The current experiment has several limitations:
+
+- Only 544 images were used.
+- The available subset contains only four classes (0–3).
+- The neural network has 10 output neurons, but the current experiment does not contain classes 4–9.
+- Class 3 was not correctly predicted in the final validation results.
+- The validation accuracy reached 81.71%, but the performance is not uniform across all classes.
+
+A future version can use the complete Hoda 0-9 dataset to perform true 10-class digit classification.
+
+---
+
+🔮 Future Improvements
+
+Possible improvements include:
+
+- Using the complete Hoda 0-9 dataset.
+- Including all ten digit classes (0–9).
+- Increasing the image resolution.
+- Tuning Genetic Algorithm parameters.
+- Using a larger neural network.
+- Comparing GA optimization with Gradient Descent.
+- Testing different mutation and crossover strategies.
+- Increasing the population diversity.
+
+---
+
+👩‍💻 Author
+
 Developed by Maedeh Babaei
+
